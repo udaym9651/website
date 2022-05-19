@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage ('Website') {
       steps {
-        sh 'docker ps'
+        sh 'ps -aef'
       }
     }
   }
