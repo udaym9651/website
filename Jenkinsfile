@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage ('Website') {
       steps {
-        sh 'service start apache2'
+        sh 'service apache2 start'
         sh 'apache2 --version || true'
       }
     }
