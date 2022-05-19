@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage ('Website') {
       steps {
-        sh 'service apache2 status'
+        sh 'docker ps'
       }
     }
   }
