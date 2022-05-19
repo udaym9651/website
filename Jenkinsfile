@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage ('Website') {
       steps {
-        sh 'sudo service apache2 status'
+        sh 'service apache2 status'
       }
     }
   }
