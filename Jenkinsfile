@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage ('Website') {
       steps {
-        sh 'ps -aef'
+        sh 'apache2 --version || true'
       }
     }
   }
