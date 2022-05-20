@@ -5,6 +5,8 @@ node {
       custimg.inside {
         sh 'service apache2 status || true'
       }
+      }
+    stage('Test'){
       sh 'docker run -it -p 80:80 -d website:${env.BUILD_ID}'
     }
 }
