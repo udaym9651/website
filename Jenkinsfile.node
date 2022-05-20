@@ -15,7 +15,7 @@ node {
     }
     
     stage('nginx'){
-       def dockerfile = 'Dockerfile.nginx'
+       def dockerfile = 'Dockerfilenginx'
        def nginximg = docker.build("nginx:${env.BUILD_ID}","-f ./images/${dockerfile}")
        nginximg.inside {
           sh 'service nginx status || true'
