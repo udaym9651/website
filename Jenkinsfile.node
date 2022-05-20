@@ -6,8 +6,21 @@ node {
         sh 'service apache2 status || true'
       }
       }
+      
     stage('Test'){
       sh 'docker run -it -p 80:80 -d website:$BUILD_ID'
     }
+    
+    stage('nginx'){
+       def nginximg = docker.build("nginx:${env.BUILD_ID}")
+       nginximg.inside {
+          sh 'cat /usr/share/nginx/html/index.html'
+       }
+    }
+    
+    stage('Testnginx'){
+      sh 'docker run -it -p 81:80 -d nginx:$BUILD_ID'
+    }
+    
 }
 
