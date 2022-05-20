@@ -1,6 +1,5 @@
 node {
   checkout scm
-  stages{
     stage('Build') {
       def custimg = docker.build("website:${env.BUILD_ID}")
       custimg.inside {
@@ -9,4 +8,4 @@ node {
       sh 'docker run -it -p 80:80 -d website:${env.BUILD_ID}'
     }
 }
-}
+
