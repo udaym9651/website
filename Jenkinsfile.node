@@ -2,6 +2,7 @@ node {
   checkout scm
   def custimg = docker.build("website:${env.BUILD_ID}")
   custimg.inside {
-    sh 'service apache2 status'
+    sh 'service apache2 status || true'
   }
+  sh 'docker run -it -p 80:80 -d website:${env.BUILD_ID}'
 }
