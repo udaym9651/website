@@ -1,5 +1,8 @@
 node {
   checkout scm
+    stage('çlean') {
+      sh 'docker rm -f $(docker ps -a -q)'
+    }
     stage('Build') {
       def custimg = docker.build("website:${env.BUILD_ID}")
       custimg.inside {
