@@ -1,0 +1,6 @@
+node {
+  def custimg = docker.build('website:${env.BUILD_ID}')
+  cusimg.inside {
+    sh 'service apache2 status'
+  }
+}
